@@ -1,0 +1,12 @@
+services:
+  edge-ai:
+    build: .
+    container_name: edge_vision
+    privileged: true
+    devices:
+      - /dev/video0:/dev/video0
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./src:/app/src
+    restart: unless-stopped
